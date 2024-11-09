@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.OrgDao" >
+	<select id="FindAllOrg" resultType="bean.Org">
+		SELECT * FROM org ORDER BY regtime DESC
+	</select>
+	<insert id="InserOrg" parameterType="bean.Org">
+		INSERT INTO org (orgid, orgname, regtime, contact, phone, address, logo, intro, isvalid)
+		VALUES (#{orgid}, #{orgname}, #{regtime}, #{contact}, #{phone}, #{address}, #{logo}, #{intro}, #{isvalid})
+	</insert>
+	<delete id="DeleteOrg" parameterType="string">
+		DELETE FROM org WHERE orgid=#{orgid}
+	</delete>
+</mapper>
