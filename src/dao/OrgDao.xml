@@ -12,8 +12,8 @@
 		UPDATE org SET access = access +1 WHERE orgid=#{orgid}
 	</update>
 	<insert id="InserOrg" parameterType="bean.Org">
-		INSERT INTO org (orgid, orgname, regtime, contact, phone, address, logo, intro, isvalid)
-		VALUES (#{orgid}, #{orgname}, #{regtime}, #{contact}, #{phone}, #{address}, #{logo}, #{intro}, #{isvalid})
+		INSERT INTO org (orgid, orgname, regtime, contact, phone, address, logo, intro, access, isvalid)
+		VALUES (#{orgid}, #{orgname}, #{regtime}, #{contact}, #{phone}, #{address}, #{logo}, #{intro},#{access}, #{isvalid})
 	</insert>
 	<delete id="DeleteOrg" parameterType="string">
 		DELETE FROM org WHERE orgid=#{orgid}
