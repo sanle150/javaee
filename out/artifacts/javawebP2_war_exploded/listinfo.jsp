@@ -70,11 +70,11 @@
 				<c:forEach items="${orgs}" var="o">
 	                <article class="blog-post">
 	                    <a href="#"><img src="${o.logo}" alt="photo" /></a>
-	                    <h2 class="post-title"><a href="#">${o.orgname}</a><a href="DeleteOrgServlet?orgid=${o.orgid}"><img src="images/del.png" width="32px" height="32px"></a></h2>
+	                    <h2 class="post-title"><a href="QueryAOrgByidServlet?orgid=${o.orgid}">${o.orgname}</a><a href="DeleteOrgServlet?orgid=${o.orgid}"><img src="images/del.png" width="32px" height="32px"></a></h2>
 	                    <ul class="meta clearfix">
 	                        <li>${o.regtime}</li>
 	                        <li>By: <a href="#">${o.contact}</a></li>
-	                        <li>Comments: <a href="#">3</a></li>
+	                        <li>Comments: <a href="#">${o.access}</a></li>
 	                        <li>Posted in: <a href="#">News</a> | <a href="#">${o.address}</a></li>
 	                    </ul>
 	                    <p>

@@ -1,8 +1,5 @@
-
 <%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
+pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -14,7 +11,7 @@
     <meta name="viewport" content="width=100%; initial-scale=1; maximum-scale=1; minimum-scale=1; user-scalable=no;" />
     <link rel="icon" href="images/favicon.png" type="image/png" />
     <link rel="shortcut icon" href="images/favicon.png" type="image/png" />
-    <title>Blog Page</title>
+    <title>Blog Single Page</title>
     <link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
     <link href="css/style.css" type="text/css" rel="stylesheet" />
     <link href="css/prettyPhoto.css" type="text/css" rel="stylesheet" />
@@ -56,52 +53,130 @@
     <jsp:include page="loginmenu.jsp"></jsp:include>
 </header>
 <jsp:include page="menu.jsp"></jsp:include>
-<!--breadcrumbs -->
 <div class="container breadcrumbs">
-    <h1>Blog</h1>
-    <div>You are here: &nbsp&nbsp<a href="#">Home</a> &nbsp/&nbsp Blog</div>
+    <h1>Blog Single</h1>
+    <div>You are here: &nbsp&nbsp<a href="#">Home</a> &nbsp/&nbsp Blog Single</div>
 </div>
+
 <!--container-->
 <section id="container">
     <div class="container">
         <div class="row">
-            <section id="page-sidebar" class="alignleft span9">
-             
-				<c:forEach items="${orgs}" var="o">
-	                <article class="blog-post">
-	                    <a href="#"><img src="${o.logo}" alt="photo" /></a>
-	                    <h2 class="post-title"><a href="QueryAOrgByidServlet?orgid=${o.orgid}">${o.orgname}</a><a href="DeleteOrgServlet?orgid=${o.orgid}"><img src="images/del.png" width="32px" height="32px"></a></h2>
-	                    <ul class="meta clearfix">
-	                        <li>${o.regtime}</li>
-	                        <li>By: <a href="#">${o.contact}</a></li>
-	                        <li>Comments: <a href="#">${o.access}</a></li>
-	                        <li>Posted in: <a href="#">News</a> | <a href="#">${o.address}</a></li>
-	                    </ul>
-	                    <p>
-	                        ${o.intro}${o.intro}${o.intro}
-	                    </p>
-	                    <a href="#" class="read-more">Read More...</a>
-	                </article>
-	
-	                <hr />
-				</c:forEach>
-               
-                <!--pagination-->
-                <div class="pagination pagination-centered">
-                    <ul>
-                        <li class="disabled"><a href="#">&laquo;</a></li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
+            <section id="page-sidebar" class="alignrleft span9">
+                <article class="blog-post">
+                    <h1>${org.orgname}</h1>
+                    <ul class="meta clearfix">
+                        <li>${org.regtime}</li>
+                        <li>By: <a href="#">${org.contact}</a></li>
+                        <li>Comments: <a href="#">${org.access}</a></li>
+                        <li>Posted in: <a href="#">News</a> | <a href="#">Business</a></li>
+                    </ul>
+                    <img src="${org.logo}" alt="photo" />
+                    <p>
+                       我是毒液哈哈哈
+                    </p>
+                    <blockquote>
+                        <p>
+                            ${org.intro}
+                            ${org.intro}
+                        </p>
+                    </blockquote>
+                </article>  
+
+                <hr />
+
+                <!--comments-->
+                <div class="title-divider">
+                    <div class="divider-arrow"></div>                                  
+                    <h3>4 Comments</h3>
+                </div>
+                <div class="comments">
+                    <ul class="comments-list">
+                        <li class="clearfix comments_li">
+                            <img src="images/avatar.png" alt="avatar" class="avatar" />
+                            <div class="textarea">
+                                <p class="meta">May 18, 2012 Designmd says:</p>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                    Etiam a sapien odio, sit amet 
+                                </p>
+                            </div>
+                            <ul>
+                                <li>
+                                    <img src="images/avatar.png" alt="avatar" class="avatar" />
+                                    <div class="textarea">
+                                        <p class="meta">May 17, 2012 bingumd says:</p>
+                                            <p>
+                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                            </p>
+                                        <div class="shadow-comments2"></div>
+                                    </div>
+                                    <ul>
+                                        <li>
+                                            <img src="images/avatar.png" alt="avatar" class="avatar" />
+                                            <div class="textarea">
+                                                <p class="meta">May 17, 2012 bingumd says:</p>
+                                                <p>
+                                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                                </p>
+                                                <div class="shadow-comments2"></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                       	</li>
+                        <li>
+                            <div><img src="images/avatar.png" alt="avatar" class="avatar" /></div>
+                            <div class="textarea lastbt">
+                                <p class="meta">May 16, 2012 Designmd says:</p>
+                                <p>
+                                    scelerisque felis. Maecenas tincidunt ligula eu magna tincidunt eget imperdiet erat malesuada. 
+                                    Ut in diam et metus facilisis venenatis sit amet vel enim. 
+                                </p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
+
+                <hr />
+                
+                <!--commetns form-->
+                <div class="title-divider">
+                    <div class="divider-arrow"></div>                                  
+                    <h3>Leave A Reply</h3>       
+                </div>
+                <form name="comment" method="post" action="" class="af-form" id="af-form" />
+                    <div class="af-outer af-required">
+                        <div class="af-inner">
+                            <label for="name" id="name_label">Your Name:</label>
+                            <input type="text" name="name" id="name" size="30" value="" class="text-input input-xlarge" />
+                            <label class="error" for="name" id="name_error">Name is required.</label>
+                        </div>
+                    </div>
+                    <div class="af-outer af-required">
+                        <div class="af-inner">
+                            <label for="email" id="email_label">Your Email:</label>
+                            <input type="text" name="email" id="email" size="30" value="" class="text-input input-xlarge" />
+                            <label class="error" for="email" id="email_error">Email is required.</label>
+                        </div>
+                    </div>
+                    <div class="af-outer af-required">
+                        <div class="af-inner">
+                            <label for="input-message" id="message_label">Your Message:</label>
+                            <textarea name="message" id="input-message" cols="30" class="text-input"></textarea>
+                            <label class="error" for="input-message" id="message_error">Message is required.</label>
+                        </div>
+                    </div>
+                    <div class="af-outer af-required">
+                        <div class="af-inner">
+                            <input type="submit" name="submit" class="form-button btn" id="submit_btn" value="Send Message!" />
+                        </div>
+                    </div>
+                </form>
             </section>
             <!--sidebar-->
             <aside id="sidebar" class="alignright span3">
-
                 <section class="post-widget">
                     <div class="title-divider">
                         <div class="divider-arrow"></div>                               
@@ -134,9 +209,10 @@
                         <div class="divider-arrow"></div>                               
                         <h4>Twitter</h4>             
                     </div>
-                    <div class="twitter"></div>
+                    <div class="twitter"></div> 
                     <script type="text/javascript">
                         $(document).ready(function(){
+                           //twitter
                             $(".twitter").tweet({
                                   join_text: "auto",
                                   username: "twitter",
@@ -154,7 +230,7 @@
                 </section>
             </aside>
         </div>
-    </div>
+    </div>    
 </section>
 
 <!--footer-->

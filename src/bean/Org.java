@@ -9,11 +9,12 @@ public class Org {
     String address;
     String logo;
     String intro;
+    int access;
     int isvalid;
 
     public Org(){}
 
-    public Org(String orgid, String orgname, String regtime, String contact, String phone, String address, String logo, String intro, int isvalid) {
+    public Org(String orgid, String orgname, String regtime, String contact, String phone, String address, String logo, String intro, int access, int isvalid) {
         this.orgid = orgid;
         this.orgname = orgname;
         this.regtime = regtime;
@@ -22,6 +23,7 @@ public class Org {
         this.address = address;
         this.logo = logo;
         this.intro = intro;
+        this.access = access;
         this.isvalid = isvalid;
     }
 
@@ -89,26 +91,19 @@ public class Org {
         this.intro = intro;
     }
 
+    public int getAccess() {
+        return access;
+    }
+
+    public void setAccess(int access) {
+        this.access = access;
+    }
+
     public int getIsvalid() {
         return isvalid;
     }
 
     public void setIsvalid(int isvalid) {
         this.isvalid = isvalid;
-    }
-
-    @Override
-    public String toString() {
-        return "Org{" +
-                "orgid='" + orgid + '\'' +
-                ", orgname='" + orgname + '\'' +
-                ", regtime='" + regtime + '\'' +
-                ", contact='" + contact + '\'' +
-                ", phone='" + phone + '\'' +
-                ", address='" + address + '\'' +
-                ", logo='" + logo + '\'' +
-                ", intro='" + intro + '\'' +
-                ", isvalid=" + isvalid +
-                '}';
     }
 }

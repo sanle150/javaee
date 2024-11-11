@@ -33,7 +33,7 @@
                     </c:if>
                     <li><a href="QueryAllOrgServlet">查询</a></li>
                    
-                    <li class="last"><a href="./blog-single.html">详情</a></li>
+                    <li class="last"><a href="ainfo.jsp">详情</a></li>
                 </ul>
             </li>
             <li><a href="./contact.html">联系我们</a></li>

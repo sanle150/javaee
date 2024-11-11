@@ -26,8 +26,9 @@ public class AddOrgServlet extends HttpServlet {
         String address = request.getParameter("address");
         String logo = request.getParameter("logo");
         String intro = request.getParameter("intro");
+        int access=0;
         int isvalid = 1;
-        Org org = new Org(orgid,orgname,regtime,contact,phone,address,logo,intro,isvalid);
+        Org org = new Org(orgid,orgname,regtime,contact,phone,address,logo,intro,access,isvalid);
         MybatisUtil mybatisutil= new MybatisUtil();
         boolean ret=mybatisutil.InserOrg(org);
         System.out.println(ret);

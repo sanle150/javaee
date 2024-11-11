@@ -84,6 +84,41 @@ public class MybatisUtil implements UserDao, BannerDao,OrgDao{
 	}
 
 	@Override
+	public Org FindAOrg(String orgid) {
+		try {
+			reader = Resources.getResourceAsReader(resources);
+			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+			SqlSession session = sqlSessionFactory.openSession();
+			Org org=session.selectOne("FindAOrg",orgid);
+			session.close();
+			return org;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	@Override
+	public boolean FindAOrgPlusPlus(String orgid)
+	{
+		try {
+			reader = Resources.getResourceAsReader(resources);
+			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+			SqlSession session = sqlSessionFactory.openSession();
+			try {
+				int plus=session.update("FindAOrgPlusPlus",orgid);
+				session.commit();
+				return plus > 0;
+			} finally {
+				session.close();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
 	public boolean InserOrg(Org org) {
 		try {
 			reader = Resources.getResourceAsReader(resources);

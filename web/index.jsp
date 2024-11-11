@@ -98,7 +98,7 @@
                                 <img src="${u.image}" />
                                 <div style="display: block;" class="da-animate da-slideFromLeft">
                                     <a data-rel="prettyPhoto" class="p-view" href="example/view.jpg" rel="prettyPhoto"></a>
-                                    <a class="p-link" href="blog-single.html"></a>
+                                    <a class="p-link" href="ainfo.jsp"></a>
                                 </div>
                             </li>
                             </c:forEach>

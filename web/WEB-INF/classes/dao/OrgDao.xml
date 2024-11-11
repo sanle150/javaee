@@ -5,6 +5,12 @@
 	<select id="FindAllOrg" resultType="bean.Org">
 		SELECT * FROM org ORDER BY regtime DESC
 	</select>
+	<select id="FindAOrg" parameterType="string" resultType="bean.Org">
+		SELECT * FROM org WHERE orgid=#{orgid}
+	</select>
+	<update id="FindAOrgPlusPlus" parameterType="string">
+		UPDATE org SET access = access +1 WHERE orgid=#{orgid}
+	</update>
 	<insert id="InserOrg" parameterType="bean.Org">
 		INSERT INTO org (orgid, orgname, regtime, contact, phone, address, logo, intro, isvalid)
 		VALUES (#{orgid}, #{orgname}, #{regtime}, #{contact}, #{phone}, #{address}, #{logo}, #{intro}, #{isvalid})
