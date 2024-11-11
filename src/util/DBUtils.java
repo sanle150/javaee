@@ -12,7 +12,7 @@ public class DBUtils {
 
 	String url="jdbc:mysql://localhost:3306/healthy2024?serverTimezone=GMT%2B8";
 	String user="root";
-	String password="285256";
+	String password="";
 	Connection conn =null;
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
